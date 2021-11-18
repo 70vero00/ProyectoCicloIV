@@ -21,7 +21,7 @@ $(document).ready(function(){
 	        }
 	        else{
 				sessionStorage.setItem('usuario', respuesta.cedula_usuario);
-	        	window.location.href = "./Inicio.jsp?rol="+respuesta.rol.rol;
+	        	window.location.href = "./Inicio.jsp?rol="+respuesta.rol;
 	        }
 	    });
 		  //en caso de que el requerimiento falle

@@ -55,6 +55,7 @@ catch(Exception e){
 	        <div class="mb-3">
 	            <label for="texto_contra" class="form-label">Contraseña</label>
 	            <input type="password" class="form-control" id="password" placeholder="Ingrese Constraseña" name="password">
+	            <input type="hidden" id="rol" name="rol" value="">
 	        </div>
 	
 	        <div class="d-grid gap-3 d-md-block">

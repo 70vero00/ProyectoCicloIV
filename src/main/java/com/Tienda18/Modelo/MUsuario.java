@@ -86,7 +86,7 @@ public class MUsuario {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cedula_usuario, email_usuario, nombre_usuario, password, rol, usuario);
+		return Objects.hash(cedula_usuario, email_usuario, nombre_usuario, password, usuario, rol);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -99,7 +99,7 @@ public class MUsuario {
 		MUsuario other = (MUsuario) obj;
 		return cedula_usuario == other.cedula_usuario && Objects.equals(email_usuario, other.email_usuario)
 				&& Objects.equals(nombre_usuario, other.nombre_usuario) && Objects.equals(password, other.password)
-				&& Objects.equals(rol, other.rol) && Objects.equals(usuario, other.usuario);
+				&& Objects.equals(usuario, other.usuario) && Objects.equals(rol, other.rol) ;
 	}
 	@Override
 	public String toString() {

@@ -1,15 +1,28 @@
 $(document).ready(function(){
 	function crearActualizar(strong,small){
-		  // los parametros que se enviaran a la API (JSON)
+		if ($("#rol").val()!= 1){
+			// los parametros que se enviaran a la API (JSON)
 	       var datos = JSON.stringify({
 	    	    cedula_usuario: $("#texto_cedula").val(),
 	          	email_usuario: $("#texto_correo").val(),
 	        	nombre_usuario: $("#texto_nombre").val(),
 	        	password: $("#password").val(),
 	        	usuario: $("#texto_usuario").val(),
-	        	rol: {"rol":2}
-	          	
+				rol: 2
+				});
+		}
+		else{
+			// los parametros que se enviaran a la API (JSON)
+	       var datos = JSON.stringify({
+	    	    cedula_usuario: $("#texto_cedula").val(),
+	          	email_usuario: $("#texto_correo").val(),
+	        	nombre_usuario: $("#texto_nombre").val(),
+	        	password: $("#password").val(),
+	        	usuario: $("#texto_usuario").val(),
+	        	rol: 1	
 	        });
+		}
+		  
 			  //el request con toda la informacion del lugar que se consultará
 	        var request = $.ajax({
 	            url: "./usuarios",
@@ -89,7 +102,8 @@ $(document).ready(function(){
 			            	$("#texto_correo").val(respuesta.email_usuario);
 			            	$("#texto_nombre").val(respuesta.nombre_usuario);
 			            	$("#password").val(respuesta.password);
-			            	$("#texto_usuario").val(respuesta.usuario);
+							$("#texto_usuario").val(respuesta.usuario);
+							$("#rol").val(respuesta.rol);
 			            }
 			        });
 			        request.fail(function(jqXHR, textStatus) {
