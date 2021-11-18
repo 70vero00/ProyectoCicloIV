@@ -1,15 +1,21 @@
 $(document).ready(function(){
 	function crearActualizar(strong,small){
 		if ($("#rol").val()!= 1){
-			// los parametros que se enviaran a la API (JSON)
-	       var datos = JSON.stringify({
-	    	    cedula_usuario: $("#texto_cedula").val(),
-	          	email_usuario: $("#texto_correo").val(),
-	        	nombre_usuario: $("#texto_nombre").val(),
-	        	password: $("#password").val(),
-	        	usuario: $("#texto_usuario").val(),
-				rol: 2
-				});
+			var rolActual = 2;
+		}
+		else{
+			rolActual = 1;
+		}
+		// los parametros que se enviaran a la API (JSON)
+		var datos = JSON.stringify({
+			cedula_usuario: $("#texto_cedula").val(),
+			email_usuario: $("#texto_correo").val(),
+			nombre_usuario: $("#texto_nombre").val(),
+			password: $("#password").val(),
+			usuario: $("#texto_usuario").val(),
+			rol: rolActual
+			});
+		/*
 		}
 		else{
 			// los parametros que se enviaran a la API (JSON)
@@ -22,6 +28,7 @@ $(document).ready(function(){
 	        	rol: 1	
 	        });
 		}
+		*/
 		  
 			  //el request con toda la informacion del lugar que se consultará
 	        var request = $.ajax({
