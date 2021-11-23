@@ -39,7 +39,7 @@
 			 out.println("Error 3");
 		}
 	}
-	//if(rol==1){
+	if(rol==1){
 	%>
 	<div class="card">
         <img src="./img/usuario1.png" class="img-centro-vert-hor" alt="...">
@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-	<%//} %>
+	<%} %>
     <div class="card">
         <img src="./img/compras1.png" class="img-centro-vert-hor" alt="...">
         <div class="card-body bg_body">
