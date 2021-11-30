@@ -19,7 +19,7 @@ public class MVenta {
 
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo_venta;
+	private Integer codigo_venta;
 	//@ManyToOne(optional = false)
 	//@JoinColumn(name = "cedula_cliente",nullable=false)
 	//private MCliente cliente; 
@@ -35,7 +35,7 @@ public class MVenta {
 	//@Column(nullable=false)
 	private Double valor_venta;
 	
-	public MVenta(Long codigo_venta, String cliente, String usuario, Double iva_venta, Double total_venta,
+	public MVenta(Integer codigo_venta, String cliente, String usuario, Double iva_venta, Double total_venta,
 			Double valor_venta) {
 		this.codigo_venta = codigo_venta;
 		this.cliente = cliente;
@@ -46,10 +46,10 @@ public class MVenta {
 	}
 	public MVenta() {
 	}
-	public Long getCodigo_venta() {
+	public Integer getCodigo_venta() {
 		return codigo_venta;
 	}
-	public void setCodigo_venta(Long codigo_venta) {
+	public void setCodigo_venta(Integer codigo_venta) {
 		this.codigo_venta = codigo_venta;
 	}
 	public String getCliente() {
@@ -84,7 +84,7 @@ public class MVenta {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cliente, codigo_venta, iva_venta, total_venta, usuario, valor_venta);
+		return Objects.hash( codigo_venta,  cliente, usuario, iva_venta, total_venta, valor_venta);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -95,10 +95,10 @@ public class MVenta {
 		if (getClass() != obj.getClass())
 			return false;
 		MVenta other = (MVenta) obj;
-		return Objects.equals(cliente, other.cliente) && codigo_venta == other.codigo_venta
-				&& Double.doubleToLongBits(iva_venta) == Double.doubleToLongBits(other.iva_venta)
-				&& Double.doubleToLongBits(total_venta) == Double.doubleToLongBits(other.total_venta)
+		return  codigo_venta == other.codigo_venta  && Objects.equals(cliente, other.cliente)
 				&& Objects.equals(usuario, other.usuario)
+				&& Double.doubleToLongBits(iva_venta) == Double.doubleToLongBits(other.iva_venta)
+				&& Double.doubleToLongBits(total_venta) == Double.doubleToLongBits(other.total_venta)				
 				&& Double.doubleToLongBits(valor_venta) == Double.doubleToLongBits(other.valor_venta);
 	}
 	@Override

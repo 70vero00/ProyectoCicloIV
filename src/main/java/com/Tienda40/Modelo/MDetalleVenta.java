@@ -20,7 +20,7 @@ public class MDetalleVenta {
 	
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo_detalle_venta; 
+	private Integer codigo_detalle_venta; 
 	//@Column(nullable=false)
 	private Integer cantidad_producto; 
 	//@ManyToOne(optional = false)
@@ -37,7 +37,7 @@ public class MDetalleVenta {
 	private Double valor_venta;
 	//@Column(nullable=false)
 	private Double valor_iva;
-	public MDetalleVenta(Long codigo_detalle_venta, Integer cantidad_producto, Integer producto, Double venta,
+	public MDetalleVenta(Integer codigo_detalle_venta, Integer cantidad_producto, Integer producto, Double venta,
 			Double valor_total, Double valor_venta, Double valor_iva) {
 		this.codigo_detalle_venta = codigo_detalle_venta;
 		this.cantidad_producto = cantidad_producto;
@@ -49,10 +49,10 @@ public class MDetalleVenta {
 	}
 	public MDetalleVenta() {
 	}
-	public Long getCodigo_detalle_venta() {
+	public Integer getCodigo_detalle_venta() {
 		return codigo_detalle_venta;
 	}
-	public void setCodigo_detalle_venta(Long codigo_detalle_venta) {
+	public void setCodigo_detalle_venta(Integer codigo_detalle_venta) {
 		this.codigo_detalle_venta = codigo_detalle_venta;
 	}
 	public Integer getCantidad_producto() {
@@ -93,8 +93,8 @@ public class MDetalleVenta {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cantidad_producto, codigo_detalle_venta, producto, valor_iva, valor_total, valor_venta,
-				venta);
+		return Objects.hash(codigo_detalle_venta, cantidad_producto,  producto, venta, valor_total, valor_venta, valor_iva  
+				);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -105,12 +105,13 @@ public class MDetalleVenta {
 		if (getClass() != obj.getClass())
 			return false;
 		MDetalleVenta other = (MDetalleVenta) obj;
-		return cantidad_producto == other.cantidad_producto && codigo_detalle_venta == other.codigo_detalle_venta
+		return codigo_detalle_venta == other.codigo_detalle_venta
+				&& cantidad_producto == other.cantidad_producto 
 				&& Objects.equals(producto, other.producto)
-				&& Double.doubleToLongBits(valor_iva) == Double.doubleToLongBits(other.valor_iva)
+				&& Objects.equals(venta, other.venta)
 				&& Double.doubleToLongBits(valor_total) == Double.doubleToLongBits(other.valor_total)
 				&& Double.doubleToLongBits(valor_venta) == Double.doubleToLongBits(other.valor_venta)
-				&& Objects.equals(venta, other.venta);
+				&& Double.doubleToLongBits(valor_iva) == Double.doubleToLongBits(other.valor_iva);
 	}
 	@Override
 	public String toString() {

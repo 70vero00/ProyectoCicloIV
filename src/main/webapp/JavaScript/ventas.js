@@ -23,8 +23,13 @@ $(document).ready(function(){
 				$("#cosecutivo_producto").val(consec);
 		    }
 		});
+		
+		
 	}
 	window.onload=GenConsec();
+	
+	
+	
 	
 	var cloneCount = 2;
 	  $("#mas").click(function(){
@@ -93,7 +98,7 @@ $(document).ready(function(){
 						cambiosRealizados();
 			        });
 			        request.fail(function(jqXHR, textStatus) {
-			            alert("Hubo un error: " + textStatus);
+			            alert("Hubo un error1: " + textStatus);
 		       		 });
 				}
 				else{
@@ -168,7 +173,7 @@ $(document).ready(function(){
 	            }
 	        });
 	        request.fail(function(jqXHR, textStatus) {
-	            alert("Hubo un error: " + textStatus);
+	            alert("Hubo un error2: " + textStatus);
 	        });
 		 	
 	  });
@@ -176,11 +181,17 @@ $(document).ready(function(){
 		$("#confirmar").click(function(){
 			if(productos!=0 && cliente!=0){
 				var datos = JSON.stringify({
+					"codigo_venta": parseInt($("#cosecutivo_producto").val()),
 			    	"iva_venta": parseFloat($("#total_iva").val()),
 					"total_venta": parseFloat($("#totalcon_iva").val()),
 					"valor_venta": parseFloat($("#valor_total_venta").val()),
-					"cliente": {"cedula_cliente": cliente.cedula_cliente},
-					"usuario": {"cedula_usuario": parseInt(usuario)}
+					//"cliente": {"cedula_cliente": cliente.cedula_cliente},
+					"cliente": parseFloat($("#cedula_cliente").val()),
+					//"cliente": ($("#nombre_cliente").val()),
+					//"usuario": {"cedula_usuario": parseInt(usuario)}
+					//"usuario": parseFloat($("#cedula_usuario").val())
+					//"usuario": ($(usuario).val()),
+					"usuario": (usuario)
 			    });
 				var request = $.ajax({
 		            url: "./ventas",
@@ -207,12 +218,17 @@ $(document).ready(function(){
 							}
 							if(productos[i]!==0){
 								obj = {
+									//"codigo_detalle_venta": parseInt($("#consecutivo_detalle").val()),
+									"codigo_detalle_venta": (identi),
 									"cantidad_producto": parseInt($("#cantidad_producto"+identi).val()),
 									"valor_iva": parseFloat((productos[i].iva_compra/100)*productos[i].precio_venta*$("#cantidad_producto"+identi).val()),
 									"valor_total": parseFloat((productos[i].iva_compra/100)*productos[i].precio_venta*$("#cantidad_producto"+identi).val() + productos[i].precio_venta*$("#cantidad_producto"+identi).val()),
 									"valor_venta": parseFloat(productos[i].precio_venta),
-									"producto": {"codigo_producto": parseInt(productos[i].codigo_producto)},
-									"venta": {"codigo_venta": parseInt(respuesta.codigo_venta)}
+									//"producto":  parseInt(productos[i].codigo_producto),
+									//"producto": {"codigo_producto": parseInt(productos[i].codigo_producto)},
+									"producto": parseInt($("#codigo_producto"+identi).val()),
+									//"venta": {"codigo_venta": parseInt(respuesta.codigo_venta)}
+									"venta": parseFloat($("#valor_total_producto").val())
 								};
 								detalle.push(obj);
 							}
@@ -243,7 +259,7 @@ $(document).ready(function(){
 					}
 		        });
 		        request.fail(function(jqXHR, textStatus) {
-		            alert("Hubo un error V: " + textStatus);
+		            alert("Hubo un error3 V: " + textStatus);
 		        });
 		 	}
 			else{

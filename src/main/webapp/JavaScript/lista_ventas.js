@@ -1,3 +1,6 @@
+
+
+
 var ventas = $.ajax({
 	type: "GET",
 	url: "./ventas",
@@ -6,9 +9,9 @@ var ventas = $.ajax({
 			lista = document.getElementById("Tabla_lista_ventas");				
 			var tr = document.createElement("tr");		
 			var columna1 = document.createElement("td");
-			columna1.innerHTML = item.cliente.cedula_cliente;
+			columna1.innerHTML = item.cliente;
 			var columna2 = document.createElement("td");
-			columna2.innerHTML = item.cliente.nombre_cliente;
+			columna2.innerHTML = item.cedula_cliente;
 			var columna3 = document.createElement("td");
 			columna3.innerHTML = item.total_venta;
 			tr.appendChild(columna1);
@@ -21,6 +24,12 @@ var ventas = $.ajax({
 });
 
 
+ 
+
+
+
+
+
 
 var venta = $.ajax({
 	type: "GET",
@@ -28,7 +37,9 @@ var venta = $.ajax({
 	success: function(data){
 			var tr = document.createElement("tr");
 			var column1 = document.createElement("td");	
-			lista2 = document.getElementById("Tabla_total_ventas");	
+			//var column2 = document.createElement("td");	
+			lista2 = document.getElementById("Tabla_total_ventas");
+			//lista3 = documemt.getElementById("cedula_cliente");	
 			var suma=0;
 		$.each(data, function(x, item){						
              suma+=(parseFloat(item.total_venta));             			
@@ -36,6 +47,7 @@ var venta = $.ajax({
 		  document.getElementById('total').innerHTML = suma;
 		  tr.appendChild(column1);
 		  lista2.appendChild(tr);
+	      //lista3.appendChild(tr);
 	}
 });
 

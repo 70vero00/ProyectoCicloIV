@@ -38,6 +38,7 @@
 	                  <label for="input_Cosecutivo_Producto" class="visually-hidden">Consecutivo</label>
 	                  <input type="text" class="form-control" id="cosecutivo_producto" placeholder="Consecutivo" name="cosecutivo_producto" disabled>
 	              </div>
+	              
              </div><br>
              <div id="productosX">
 	             <div class="row g-3 justify-content-end" id="id"><br>
