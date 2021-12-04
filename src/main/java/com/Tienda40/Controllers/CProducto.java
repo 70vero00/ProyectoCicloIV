@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.Tienda40.Modelo.MCliente;
 import com.Tienda40.Modelo.MProducto;
+import com.Tienda40.Repositories.RProducto;
 import com.Tienda40.Services.SCsv;
 import com.Tienda40.Services.SCsvHelper;
-import com.Tienda40.Services.SProducto;
+//import com.Tienda40.Services.SProducto;
 
 import org.springframework.http.MediaType;
 
@@ -36,13 +36,13 @@ import org.springframework.http.MediaType;
 public class CProducto {
 
 	@Autowired
-	SProducto productosS;
+	RProducto productosS;
 	@Autowired
 	SCsv csv;
 	
 	@GetMapping
 	public ArrayList<MProducto> obtener(){
-		return productosS.obtener();
+		return (ArrayList<MProducto>) productosS.findAll();
 	}
 	
 	@PostMapping  
@@ -101,26 +101,37 @@ public class CProducto {
 	
 	@GetMapping(path = "{id}")
 	public Optional<MProducto> obtenerPorId(@PathVariable("id") Long id){
-		return productosS.obtenerPorId(id);
+		return productosS.findById(id);
 	}
 	
+	/*
 	@DeleteMapping
 	public String eliminar() {
-		boolean eliminado = productosS.eliminarTodos();
-		if(eliminado) return "Productos Eliminados";
-		else return "Error Eliminado Productos";
+		//boolean eliminado = productosS.eliminarTodos();
+		//if(eliminado) return "Productos Eliminados";
+		//else return "Error Eliminado Productos";
+		
 	}
+	*/
 	
 	@DeleteMapping(path = "{id}")
 	public String eliminarPorId(@PathVariable("id") Long id) {
-		boolean eliminado = productosS.eliminar(id);
-		if(eliminado) return "Producto Eliminado";
-		else return "Error Eliminado Producto";
+		try {
+			Long eliminado = productosS.deleteByIdReturningDeletedCount(id);
+			//boolean eliminado = productosS.eliminar(id);
+			if(eliminado !=0) return "Producto Eliminado";
+			else return "Error Eliminado Producto";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return "Error Eliminado Producto";
+		}
+		
 	}
 	
 	@PostMapping(path = "/agregar")
 	public MProducto guardar(@RequestBody MProducto producto){
-		return productosS.guardar(producto);
+		return productosS.save(producto);
 	}
 	
 	/*@PostMapping

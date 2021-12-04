@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Tienda40.Modelo.MDetalleVenta;
-import com.Tienda40.Services.SDetalleVenta;
+import com.Tienda40.Repositories.RDetalleVenta;
+//import com.Tienda40.Services.SDetalleVenta;
 
 
 @RestController
@@ -21,33 +22,39 @@ import com.Tienda40.Services.SDetalleVenta;
 public class CDetalleVenta {
 
 	@Autowired
-	SDetalleVenta DetalleS;
+	RDetalleVenta DetalleS;
 	
 	@GetMapping
 	public ArrayList<MDetalleVenta> obtener(){
-		return DetalleS.obtener();
+		return (ArrayList<MDetalleVenta>) DetalleS.findAll();
 	}
 	
 	@PostMapping
 	public MDetalleVenta crear(@RequestBody MDetalleVenta detalle) {
-		return DetalleS.guardar(detalle);
+		return DetalleS.save(detalle);
 	}
 	
 	@PostMapping(path="/Todos")
 	public ArrayList<MDetalleVenta> crearTodos(@RequestBody ArrayList<MDetalleVenta> detalles){
-		return DetalleS.guardarTodos(detalles);
+		return (ArrayList<MDetalleVenta>) DetalleS.saveAll(detalles);
 	}
 	
 	
 	@GetMapping(path = "{id}")
 	public Optional<MDetalleVenta> obtenerPorId(@PathVariable("id") Long id){
-		return DetalleS.obtenerPorId(id);
+		return DetalleS.findById(id);
 	}
 	
 	@DeleteMapping(path = "{id}")
 	public String eliminarPorId(@PathVariable("id") Long id) {
-		boolean eliminado = DetalleS.eliminar(id);
-		if(eliminado) return "Detalle Ventas Eliminado";
-		else return "Error Eliminado Detalle Ventas";
+		try {
+			Long eliminado = DetalleS.deleteByIdReturningDeletedCount(id);
+			if(eliminado !=0) return "Detalle Ventas Eliminado";
+			else return "Error Eliminado Detalle Ventas";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return "Error Eliminado Detalle Ventas";
+		}
 	}
 }

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Tienda40.Modelo.MCliente;
-import com.Tienda40.Services.SCliente;
+import com.Tienda40.Repositories.RCliente;
+//import com.Tienda40.Services.SCliente;
 
 
 
@@ -21,27 +22,43 @@ import com.Tienda40.Services.SCliente;
 @RequestMapping("/clientes")
 public class CCliente {
 	@Autowired
-	SCliente clienteS;
+	//SCliente clienteS;
+	RCliente clienteS;
 	
 	@GetMapping
 	public ArrayList<MCliente> obtener(){
-		return clienteS.obtener();
+		//return clienteS.obtener();
+		return (ArrayList<MCliente>) clienteS.findAll();
 	}
 	
 	@PostMapping
 	public MCliente crear(@RequestBody MCliente cliente) {
-		return clienteS.guardar(cliente);
+		//return clienteS.guardar(cliente);
+		return clienteS.save(cliente);
 	}
 	
 	@GetMapping(path = "{id}")
 	public Optional<MCliente> obtenerPorId(@PathVariable("id") Long id){
-		return clienteS.obtenerPorId(id);
+		return clienteS.findById(id);
 	}
 	
 	@DeleteMapping(path = "{id}")
 	public String eliminarPorId(@PathVariable("id") Long id) {
-		boolean eliminado = clienteS.eliminar(id);
+		try {
+			//clienteS.deleteById(id);
+			Long eliminado = clienteS.deleteByIdReturningDeletedCount(id);
+			//System.out.println(eliminado);
+			if(eliminado !=0) return "Cliente Eliminado";
+			else return "Error Eliminado Cliente";
+			//return "Cliente Eliminado";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return "Error Eliminado Cliente";
+		}
+		/*boolean eliminado = clienteS.eliminar(id);
+		System.out.println(eliminado);
 		if(eliminado) return "Cliente Eliminado";
-		else return "Error Eliminado Cliente";
+		else return "Error Eliminado Cliente"; */
 	}
 }

@@ -195,7 +195,7 @@ $(document).ready(function(){
 					            contentType:'application/json'
 		    		});
 				    request.done(function(respuesta) {
-			        	if(respuesta==="Error Eliminado Cliente"){
+			        	if(respuesta==="Error Eliminado Producto"){
 			        		$('.toast').toast('show');
 			            	$("#strong").text("Borrar");
 			            	$("#small").text("Error al borrar");

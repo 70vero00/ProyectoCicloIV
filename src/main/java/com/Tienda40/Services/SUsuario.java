@@ -15,6 +15,7 @@ public class SUsuario {
 	@Autowired
 	RUsuario usuarioR;
 	
+	/*
 	public MUsuario guardar(MUsuario usuario) {
 		return usuarioR.save(usuario);
 	}
@@ -38,9 +39,13 @@ public class SUsuario {
 		}
 	}
 	
+	*/
+	
+	
 	public Optional<MUsuario> login(String usuario,String password) {
 		ArrayList<MUsuario> usuarios = (ArrayList<MUsuario>)usuarioR.findAll();
 		for(MUsuario usu:usuarios){
+			System.out.println(usu);
 			if(usu.getUsuario().equals(usuario) && usu.getPassword().equals(password)) {
 				return Optional.of(usu);
 			}

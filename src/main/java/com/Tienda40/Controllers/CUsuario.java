@@ -13,34 +13,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Tienda40.Modelo.MUsuario;
+import com.Tienda40.Repositories.RUsuario;
 import com.Tienda40.Services.SUsuario;
 
 @RestController
 @RequestMapping("/usuarios")
 public class CUsuario {
 	@Autowired
+	RUsuario usuarioR;
+	@Autowired
 	SUsuario usuarioS;
 	
-	@GetMapping("/listar_usuarios")
+	@GetMapping("/listar_usuarioR")
 	public ArrayList<MUsuario> obtener(){
-		return usuarioS.obtener();
+		return (ArrayList<MUsuario>) usuarioR.findAll();
 	}
 	
 	@PostMapping
 	public MUsuario crear(@RequestBody MUsuario usuario) {
-		return usuarioS.guardar(usuario);
+		return usuarioR.save(usuario);
 	}
 	
 	@GetMapping(path = "{id}")
 	public Optional<MUsuario> obtenerPorId(@PathVariable("id") Long id){
-		return usuarioS.obtenerPorId(id);
+		return usuarioR.findById(id);
 	}
 	
 	@DeleteMapping(path = "{id}")
 	public String eliminarPorId(@PathVariable("id") Long id) {
-		boolean eliminado = usuarioS.eliminar(id);
-		if(eliminado) return "Usuario Eliminado";
-		else return "Error Eliminado Usuario";
+		try {
+			Long eliminado = usuarioR.deleteByIdReturningDeletedCount(id);
+			if(eliminado !=0) return "Usuario Eliminado";
+			else return "Error Eliminado Usuario";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return "Error Eliminado Usuario";
+		}
+		
 	}
 	
 	@PostMapping(value = "/login")

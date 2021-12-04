@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Tienda40.Modelo.MVenta;
-import com.Tienda40.Services.SVenta;
+import com.Tienda40.Repositories.RVenta;
+//import com.Tienda40.Services.SVenta;
 
 
 @RestController
@@ -21,27 +22,35 @@ import com.Tienda40.Services.SVenta;
 public class CVenta {
 
 	@Autowired
-	SVenta ventasS;
+	RVenta ventasS;
 	
 	@GetMapping
 	public ArrayList<MVenta> obtener(){
-		return ventasS.obtener();
+		return (ArrayList<MVenta>) ventasS.findAll();
 	}
 	
 	@PostMapping
 	public MVenta crear(@RequestBody MVenta venta) {
-		return ventasS.guardar(venta);
+		return ventasS.save(venta);
 	}
 	
 	@GetMapping(path = "{id}")
 	public Optional<MVenta> obtenerPorId(@PathVariable("id") Long id){
-		return ventasS.obtenerPorId(id);
+		return ventasS.findById(id);
 	}
 	
 	@DeleteMapping(path = "{id}")
 	public String eliminarPorId(@PathVariable("id") Long id) {
-		boolean eliminado = ventasS.eliminar(id);
-		if(eliminado) return "Venta Eliminado";
-		else return "Error Eliminado Venta";
+		try {
+			//boolean eliminado = ventasS.eliminar(id);
+			Long eliminado = ventasS.deleteByIdReturningDeletedCount(id);
+			if(eliminado !=0) return "Venta Eliminado";
+			else return "Error Eliminado Venta";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return "Error Eliminado Venta";
+		}
+		
 	}
 }
