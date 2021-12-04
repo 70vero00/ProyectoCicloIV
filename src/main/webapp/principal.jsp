@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/estilos_agregar.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 <link
@@ -49,17 +52,23 @@
 		</h4>
 	</div>
 
+<div class="row g-3 justify-content-center">
 	<div align="">
 		<img src="img/tienda.png" align="middle" width="426px" height="426px"
 			title="Mi primera tienda virtual"
 			class="animate__animated animate__fadeInLeftBig">
 			
-  <a class="btn btn-primary" type="button" href="http://localhost:8080/Tienda40/Index.html">BOGOTA</a>
-  <a class="btn btn-primary" type="button" href="http://localhost:5000/Tienda18/Index.html">MEDELLIN</a>
-  <a class="btn btn-primary" type="button" href="http://localhost:8090/index.jsp">CALI</a>
-
 			
+  <a class="btn btn-outline-primary  col-2 mx-auto" type="button" href="http://localhost:8080/Tienda40/Index.html">BOGOTÁ</a>
+  
+  <a class="btn btn-outline-success col-2 mx-auto" type="button" href="http://localhost:5000/Tienda18/Index.html">MEDELLIN</a>
+ 
+  <a class="btn btn-outline-danger col-2 mx-auto" type="button" href="http://localhost:8090/index.jsp">CALI</a>
+ 
+		
+			</div>
 	</div>
+	
 	<div align="center">
 		<p class="animate__animated animate__zoomInUp">Estamos felices de
 			que nos hayas visitado, este es nuestro espacio virtual para que

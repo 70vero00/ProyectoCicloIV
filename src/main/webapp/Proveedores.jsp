@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_agregar.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Proveedores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -32,7 +34,18 @@
 		
 	}
 	%>
+	
+	<div class="container py-3">
+    
+     <h1 class="titulo">GESTIONAR PROVEEDOR</h1>
+    <div class="card bg-dark text-white" >
+    
 	<form id="from">
+	<img class="img" src="img/7.jpg" alt="50" width="410" />
+	<div class="card-body">
+	<div class="contenedor">
+	<div class="row justify-content-center">
+	<div class="col-md-11">
 		<div class="container pt-3">
 	        <div class="mb-3">
 	            <label for="texto_NIT" class="form-label">NIT</label>
@@ -63,7 +76,13 @@
 	            <button class="btn btn-danger" type="button" name="boton_borrar_proveedor" id="borrar">Borrar</button>
 	        </div>
 	    </div>
+	     </div>
+    </div>
+    </div>
+    </div>
 	</form>
+	 </div>
+	    </div>
 	<div align='center'>
 		<div class="toast">
 	    	<div class="toast-header">

@@ -45,12 +45,14 @@ catch(Exception e){
 	    	<div class="toast-body" id="toast_body"></div>
 	  	</div>
 	</div>
+	<br>
     <container pt-3>
 	    <form enctype="multipart/form-data">
 	    <br>
 	        <div class="mb-3">
 	        <h3>
 	            <label for="archivo" class="form-label">Ingrese archivo de productos</label>
+	            
 	            </h3>
 	            <div class="input-group">
   <input type="file" class="form-control" id="archivo" name="file" placeholder="" accept='.csv' required aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
@@ -81,7 +83,7 @@ catch(Exception e){
     
 	<div class="contenedor">
     <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-10">
     
         <div class="mb-3">
         

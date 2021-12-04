@@ -125,7 +125,7 @@ $(document).ready(function(){
 				$('.toast').toast('show');
             	$("#strong").text("Vacios");
             	$("#small").text("Espacios vacios");
-            	$("#toast_body").text("Por favor llene el código");
+            	$("#toast_body").text("Por favor llene el codigo");
 		}else{
 	        var request = $.ajax({
 		        url: "./productos/" + $("#texto_codigo").val() ,
@@ -186,7 +186,7 @@ $(document).ready(function(){
 					$('.toast').toast('show');
 	            	$("#strong").text("Vacios");
 	            	$("#small").text("Espacios vacios");
-	            	$("#toast_body").text("Por favor llene el Código");
+	            	$("#toast_body").text("Por favor llene el Codigo");
 			}else{
 					var request = $.ajax({
 					            url: "./productos/"+ $("#texto_codigo").val() ,

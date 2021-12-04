@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_agregar.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -30,7 +32,19 @@ catch(Exception e){
 	
 }
 %>
+
+<div class="container py-3">
+    
+     <h1 class="titulo">GESTIONAR USUARIO</h1>
+    <div class="card bg-dark text-white" >
+    
 	<form method="post" accept-charset="utf-8" id="form">
+	<img class="img" src="img/3.jpg" alt="100" width="420" />
+	
+	<div class="card-body">
+	<div class="contenedor">
+	<div class="row justify-content-center">
+	<div class="col-md-11">
 	    <div class="container pt-3">
 	        <div class="mb-3">
 	            <label for="texto_cedula" class="form-label">Cédula</label>
@@ -65,7 +79,13 @@ catch(Exception e){
 	            <button class="btn btn-danger" type="button" name="boton_borrar_usuario" id="borrar">Borrar</button>
 	        </div>
 	    </div>
+	    </div>
+	    </div>
+	    </div>
+	    </div>
    </form>
+   </div>
+	    </div>
    	<div align='center'>
 		<div class="toast">
 	    	<div class="toast-header">

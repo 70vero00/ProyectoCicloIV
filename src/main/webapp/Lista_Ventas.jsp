@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_agregar.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Lista de Ventas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -16,8 +18,14 @@
 
 <body>
 <jsp:include page="Menu.jsp"></jsp:include>
+          
+	              
+<br>
     <h2 class="text-center">Total de Ventas por Cliente</h2>
-    <table class="table">
+    <div class="container py-3">
+    <div class="col-md-15">
+    <div class="row justify-content-center">
+    <table class="table table-striped">
         <thead class="table-dark">
             <tr>               
                 <th scope="col">Cedula</th>
@@ -29,22 +37,30 @@
 
         </tbody>
     </table>
+    </div>
+    </div>
+    </div>
     <!--Opcion 2 para mostrar las ventas totales-->
-    
-    <table class="table">
+    <div class="container py-3">
+    <div class="col-md-15">
+    <table class="table">    
         <thead class="table-dark">
             <tr>               
                 <th scope="col" colspan="4">Total Ventas $</th> 
             </tr>
         </thead>
         <tbody id= "Tabla_total_ventas">
+        
             <tr class="table-primary">
+            
                 <td id="total"></td>
+                
             </tr>
 
         </tbody>
     </table>
-
+</div>
+    </div>
 
 
 

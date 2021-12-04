@@ -12,8 +12,8 @@
     <script type="text/javascript">
     	var usuario = sessionStorage.getItem('usuario');
     	if(usuario == null){
-    		//window.location.href = "./Index.html";
-    		alert("Hubo un error: ");
+    		window.location.href = "./Index.html";
+    		//alert("Hubo un error: ");
     	}
     </script>
 </head>
@@ -25,8 +25,8 @@
 			rol = (int)session.getAttribute("rol");
 		}
 		catch(Exception e){
-			//response.sendRedirect("./Index.html");
-			out.println("Error 2");
+			response.sendRedirect("./Index.html");
+			//out.println("Error 2");
 		}
 	}
 	else{
@@ -35,8 +35,8 @@
 			session.setAttribute("rol", rol);
 		}
 		catch(Exception e){
-			//response.sendRedirect("./Index.html");	
-			 out.println("Error 3");
+			response.sendRedirect("./Index.html");	
+			 //out.println("Error 3");
 		}
 	}
 	if(rol==1){
