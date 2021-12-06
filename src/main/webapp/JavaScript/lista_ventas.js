@@ -11,7 +11,7 @@ var ventas = $.ajax({
 			var columna1 = document.createElement("td");
 			columna1.innerHTML = item.cliente;
 			var columna2 = document.createElement("td");
-			columna2.innerHTML = item.cedula_cliente;
+			columna2.innerHTML = item.nombre_cliente;
 			var columna3 = document.createElement("td");
 			columna3.innerHTML = item.total_venta;
 			tr.appendChild(columna1);

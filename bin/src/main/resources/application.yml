@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: MicroservicioClientes
+      host: localhost
+      port: 27017

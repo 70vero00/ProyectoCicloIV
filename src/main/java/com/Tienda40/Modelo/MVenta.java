@@ -34,15 +34,17 @@ public class MVenta {
 	private Double total_venta; 
 	//@Column(nullable=false)
 	private Double valor_venta;
+	private String nombre_cliente;
 	
 	public MVenta(Integer codigo_venta, String cliente, String usuario, Double iva_venta, Double total_venta,
-			Double valor_venta) {
+			Double valor_venta, String nombre_cliente) {
 		this.codigo_venta = codigo_venta;
 		this.cliente = cliente;
 		this.usuario = usuario;
 		this.iva_venta = iva_venta;
 		this.total_venta = total_venta;
 		this.valor_venta = valor_venta;
+		this.nombre_cliente = nombre_cliente;
 	}
 	public MVenta() {
 	}
@@ -82,9 +84,16 @@ public class MVenta {
 	public void setValor_venta(Double valor_venta) {
 		this.valor_venta = valor_venta;
 	}
+	
+	public String getNombre_cliente() {
+		return nombre_cliente;
+	}
+	public void setNombre_cliente(String nombre_cliente) {
+		this.nombre_cliente = nombre_cliente;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash( codigo_venta,  cliente, usuario, iva_venta, total_venta, valor_venta);
+		return Objects.hash( codigo_venta,  cliente, usuario, iva_venta, total_venta, valor_venta, nombre_cliente);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -99,11 +108,12 @@ public class MVenta {
 				&& Objects.equals(usuario, other.usuario)
 				&& Double.doubleToLongBits(iva_venta) == Double.doubleToLongBits(other.iva_venta)
 				&& Double.doubleToLongBits(total_venta) == Double.doubleToLongBits(other.total_venta)				
-				&& Double.doubleToLongBits(valor_venta) == Double.doubleToLongBits(other.valor_venta);
+				&& Double.doubleToLongBits(valor_venta) == Double.doubleToLongBits(other.valor_venta)
+				&& Objects.equals(nombre_cliente, other.nombre_cliente);
 	}
 	@Override
 	public String toString() {
 		return "MVenta [codigo_venta=" + codigo_venta + ", cliente=" + cliente + ", usuario=" + usuario + ", iva_venta="
-				+ iva_venta + ", total_venta=" + total_venta + ", valor_venta=" + valor_venta + "]";
+				+ iva_venta + ", total_venta=" + total_venta + ", valor_venta=" + valor_venta + ", nombre_cliente="+ nombre_cliente +"]";
 	} 
 }

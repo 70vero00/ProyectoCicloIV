@@ -1,6 +1,6 @@
 var usuarios = $.ajax({
 	type: "GET",
-	url: "./usuarios/listar_usuarios",
+	url: "./usuarios/listar_usuarioR",
 	success: function(data){
 		$.each(data, function(i, item){
 			lista = document.getElementById("Tabla_lista_usuarios");				

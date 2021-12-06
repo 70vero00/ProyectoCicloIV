@@ -187,7 +187,7 @@ $(document).ready(function(){
 					"valor_venta": parseFloat($("#valor_total_venta").val()),
 					//"cliente": {"cedula_cliente": cliente.cedula_cliente},
 					"cliente": parseFloat($("#cedula_cliente").val()),
-					//"cliente": ($("#nombre_cliente").val()),
+					"nombre_cliente": ($("#nombre_cliente").val()),
 					//"usuario": {"cedula_usuario": parseInt(usuario)}
 					//"usuario": parseFloat($("#cedula_usuario").val())
 					//"usuario": ($(usuario).val()),

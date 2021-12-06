@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ciclo4amongodb:
+    image: mongo:latest
+    container_name: "ciclo4amongodb"
+    ports:
+      - 27017:27017
+  microservicioclientes:
+    image: microservicioclientes:1.0
+    container_name: microservicioclientes
+    ports:
+      - 8080:8080
+    links:
+      - ciclo4amongodb      
