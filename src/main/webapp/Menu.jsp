@@ -56,6 +56,9 @@ catch(Exception e){
                     <li class="nav-item">
                         <a class="nav-link active" href="./Reportes.jsp?img=reportes1">Reportes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./Consolidado.jsp?img=consolidacion">Consolidación</a>
+                    </li>
                 </ul>
             </div>
             <div class="dropdown" style="text-align: right; width: 220px">

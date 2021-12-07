@@ -61,9 +61,9 @@
 			
   <a class="btn btn-outline-primary  col-2 mx-auto" type="button" href="http://localhost:8080/Tienda40/Index.html">BOGOTÁ</a>
   
-  <a class="btn btn-outline-success col-2 mx-auto" type="button" href="http://localhost:5000/Tienda18/Index.html">MEDELLIN</a>
+  <a class="btn btn-outline-success col-2 mx-auto" type="button" href="http://localhost:5000/Tienda40/Index.html">MEDELLIN</a>
  
-  <a class="btn btn-outline-danger col-2 mx-auto" type="button" href="http://localhost:8090/index.jsp">CALI</a>
+  <a class="btn btn-outline-danger col-2 mx-auto" type="button" href="http://localhost:8090/Tienda40/Index.html">CALI</a>
  
 		
 			</div>

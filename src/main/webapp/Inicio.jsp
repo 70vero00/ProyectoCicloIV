@@ -94,5 +94,13 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <img src="./img/consolidacion.png" class="img-centro-vert-hor" alt="...">
+        <div class="card-body bg_body">
+            <div class="d-grid gap-2 col-6 mx-auto" >
+                <button type="button" class="btn btn-outline-warning btn-lg" style="margin-right: 400px" onclick="location.href='./Consolidado.jsp?img=consolidacion'">Consolidación</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

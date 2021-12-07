@@ -12,25 +12,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./JavaScript/lista_ventas.js"></script>
+    <script src="./JavaScript/consolidado.js"></script>
 
 </head>
 
 <body>
 <jsp:include page="Menu.jsp"></jsp:include>
 
-       
-	              
+            
 <br>
-    <h2 class="text-center">Total de Ventas por Cliente</h2>
+    <h2 class="text-center">Total de Ventas por Ciudad</h2>
     <div class="container py-3">
     <div class="col-md-15">
     <div class="row justify-content-center">
     <table class="table table-striped">
         <thead class="table-dark">
             <tr>               
-                <th scope="col">Cedula</th>
-                <th scope="col">Nombre</th>
+                <th scope="col">Ciudad</th>                
                 <th scope="col">Valor Total Ventas</th>
             </tr>
         </thead>
@@ -47,7 +45,7 @@
     <table class="table">    
         <thead class="table-dark">
             <tr>               
-                <th scope="col" colspan="4">Total Ventas $</th> 
+                <th scope="col" colspan="4">Total Ventas Tienda $</th> 
             </tr>
         </thead>
         <tbody id= "Tabla_total_ventas">
@@ -61,20 +59,9 @@
         </tbody>
     </table>
 </div>
-<button class="btn btn-success" type="button" name="boton_crear_consolidado" id = "crear">Enviar Consolidado</button>
     </div>
 
 
-
-            <div align='center'>
-		<div class="toast">
-	    	<div class="toast-header">
-	      		<strong class="mr-auto text-primary" id="strong"></strong>
-	      		<small class="text-muted" id="small"></small>
-	    	</div>
-	    	<div class="toast-body" id="toast_body"></div>
-	  	</div>
-	</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
